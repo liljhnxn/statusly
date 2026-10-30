@@ -1,0 +1,26 @@
+{
+  "name": "statusly",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Statusly — Decentralized status board on Botchain Testnet",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend start",
+    "test": "npm --prefix contracts test",
+    "compile": "npm --prefix contracts run compile",
+    "deploy:botchain": "npm --prefix contracts run deploy:botchain"
+  },
+  "keywords": [
+    "web3",
+    "ethereum",
+    "botchain",
+    "solidity",
+    "nextjs",
+    "wagmi",
+    "metamask"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js Build
+.next/
+**/.next/
+out/
+build/
+dist/
+
+# Hardhat
+artifacts/
+**/artifacts/
+cache/
+**/cache/
+typechain-types/
+**/typechain-types/
+
+# Environment variables & secrets (NEVER COMMIT)
+.env
+.env.local
+.env.*.local
+*.env
+**/.env
+**/.env.local
+**/.env.*.local
+
+# IDE & OS
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
