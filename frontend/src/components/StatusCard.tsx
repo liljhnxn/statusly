@@ -105,7 +105,7 @@ export function StatusCard({ record, currentUserAddress }: StatusCardProps) {
             </button>
 
             <a
-              href={`https://scan.bohr.life/address/${record.user}`}
+              href={`https://scan.botchain.ai/address/${record.user}`}
               target="_blank"
               rel="noopener noreferrer"
               title="View on Botchain Explorer"

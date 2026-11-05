@@ -1,11 +1,11 @@
 # Statusly: Whitepaper & Pitch Deck
 
 **Tagline:** Let people know what you're up to.  
-**Network:** Botchain Testnet (Chain ID: 968)  
-**Contract Address:** `0xa7848700A7ed85Fa13c410d44e56E46e82545457`  
-**Verified Source:** [Botchain Explorer](https://scan.bohr.life/address/0xa7848700A7ed85Fa13c410d44e56E46e82545457#code)  
+**Network:** Botchain Mainnet (Chain ID: 677) & Botchain Testnet (Chain ID: 968)  
+**Mainnet Contract Address:** `0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7`  
+**Mainnet Explorer:** [scan.botchain.ai](https://scan.botchain.ai/address/0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7#code)  
 **Repository:** [github.com/liljhnxn/statusly](https://github.com/liljhnxn/statusly)  
-**Version:** 1.0 — November 2026  
+**Version:** 2.0 — Mainnet Release  
 
 ---
 

@@ -10,18 +10,36 @@ Users can choose from predefined statuses, attach an optional short message (up 
 
 ## ⚡ Features
 
-- **Decentralized & Serverless:** 100% on-chain state stored on the Botchain Testnet. No database, backend, or centralized API.
+- **Decentralized & Serverless:** 100% on-chain state stored on Botchain. No database, backend, or centralized API.
 - **Predefined Statuses:**
   - 🟢 **Available**
   - 🔴 **Busy**
   - 🟣 **Studying**
   - 🎮 **Gaming**
   - ☕ **Away**
-- **Wallet Connection:** Connect MetaMask with automatic Botchain Testnet network switching.
+- **Wallet Connection:** Connect MetaMask with automatic Botchain Mainnet network switching.
 - **My Status Control:** Update, publish, or clear your active status with immediate UI feedback and transaction states.
 - **Community Status Board:** Browse active statuses from all users, with dynamic time indicators ("just now", "5m ago"), shortened wallet addresses, and direct links to the block explorer.
 - **Category Filtering & Search:** Filter by status type (with live count badges) and search by wallet address or message keyword.
 - **Dark Charcoal & Muted Accents Design:** Modern aesthetic featuring charcoal tones, subtle purple and emerald accents, rounded cards, and smooth hover effects.
+
+---
+
+## 🌐 Blockchain Configuration
+
+### 🚀 Botchain Mainnet (Live)
+- **Chain ID:** `677`
+- **RPC URL:** `https://rpc.botchain.ai`
+- **Block Explorer:** [https://scan.botchain.ai](https://scan.botchain.ai)
+- **Currency Symbol:** `BOT`
+- **Deployed & Verified Contract:** [`0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7`](https://scan.botchain.ai/address/0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7#code)
+
+### 🧪 Botchain Testnet
+- **Chain ID:** `968`
+- **RPC URL:** `https://rpc.bohr.life`
+- **Block Explorer:** [https://scan.bohr.life](https://scan.bohr.life)
+- **Currency Symbol:** `BOHR`
+- **Deployed & Verified Contract:** [`0xa7848700A7ed85Fa13c410d44e56E46e82545457`](https://scan.bohr.life/address/0xa7848700A7ed85Fa13c410d44e56E46e82545457#code)
 
 ---
 
@@ -34,112 +52,30 @@ Users can choose from predefined statuses, attach an optional short message (up 
 
 ---
 
-## 🌐 Blockchain Configuration
-
-- **Network Name:** Botchain Testnet
-- **Chain ID:** `968`
-- **RPC URL:** `https://rpc.bohr.life`
-- **Block Explorer:** `https://scan.bohr.life`
-- **Currency Symbol:** `BOHR`
-
----
-
-## 📁 Project Structure
-
-```text
-Statusly/
-├── contracts/
-│   ├── contracts/
-│   │   └── Statusly.sol         # Solidity smart contract
-│   ├── scripts/
-│   │   └── deploy.ts            # Botchain deployment script
-│   ├── test/
-│   │   └── Statusly.test.ts     # Smart contract test suite
-│   ├── hardhat.config.ts        # Hardhat config with Botchain network
-│   └── package.json
-├── frontend/
-│   ├── src/
-│   │   ├── app/                 # Next.js App Router (layout, page, globals)
-│   │   ├── components/          # Header, MyStatus, StatusBoard, StatusCard, etc.
-│   │   ├── config/              # wagmi, chain, and contract configuration
-│   │   ├── types/               # TypeScript interfaces and StatusType enum
-│   │   └── utils/               # Formatters (timeAgo, shortenAddress, styles)
-│   ├── tailwind.config.ts
-│   └── package.json
-├── package.json                 # Root script runner
-└── README.md
-```
-
----
-
 ## 🚀 Quick Start
 
-### 1. Prerequisites
-
-- **Node.js** (v18+ recommended)
-- **MetaMask** browser extension installed
-
-### 2. Smart Contract Testing & Deployment
+### 1. Smart Contract Testing & Deployment
 
 #### Run Tests
 ```bash
-# From root
 npm test
-
-# Or directly in contracts folder
-cd contracts
-npx hardhat test
 ```
 
-All 10 tests verify:
-- Publishing and updating status
-- Enforcing valid status types (0 to 4)
-- Enforcing max 100 character message limit
-- Clearing status and swap-and-pop array reordering
-- Inactive user query returns
-
-#### Deploy to Botchain Testnet
-1. Create a `.env` file in the `contracts` folder:
-   ```bash
-   cp contracts/.env.example contracts/.env
-   ```
-2. Add your deployer wallet private key:
-   ```env
-   PRIVATE_KEY=your_private_key_without_0x_prefix
-   ```
-   *(Ensure your address has testnet BOHR for gas fees).*
-3. Deploy to Botchain Testnet:
-   ```bash
-   npm run deploy:botchain
-   ```
-4. Copy the deployed contract address printed in the console.
+#### Deploy to Botchain Mainnet
+```bash
+npm run deploy:mainnet
+```
 
 ---
 
-### 3. Frontend Setup
+### 2. Frontend Setup
 
-1. Create a `.env.local` file inside `frontend`:
-   ```bash
-   cp frontend/.env.example frontend/.env.local
-   ```
-2. Set the deployed contract address:
+1. Check `.env.local` inside `frontend`:
    ```env
-   NEXT_PUBLIC_STATUSLY_CONTRACT_ADDRESS=0xYourDeployedContractAddress
+   NEXT_PUBLIC_STATUSLY_CONTRACT_ADDRESS=0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7
    ```
-3. Start the Next.js development server:
+2. Start the Next.js development server:
    ```bash
-   # From root
-   npm run dev
-
-   # Or in frontend folder
-   cd frontend
    npm run dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## 🔒 Security & Privacy Notice
-
-Wallet addresses and status messages are published permanently and publicly on the blockchain. Users are advised never to post sensitive private information, passwords, or personally identifiable details.
-
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.

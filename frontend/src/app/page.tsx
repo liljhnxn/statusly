@@ -7,7 +7,7 @@ import { MyStatus } from "../components/MyStatus";
 import { StatusBoard } from "../components/StatusBoard";
 import { STATUSLY_ABI, STATUSLY_CONTRACT_ADDRESS } from "../config/contract";
 import { StatusRecord } from "../types/status";
-import { botchainTestnet } from "../config/chain";
+import { botchainMainnet } from "../config/chain";
 
 export default function Home() {
   const { address } = useAccount();
@@ -25,7 +25,7 @@ export default function Home() {
     address: STATUSLY_CONTRACT_ADDRESS,
     abi: STATUSLY_ABI,
     functionName: "getAllStatuses",
-    chainId: botchainTestnet.id,
+    chainId: botchainMainnet.id,
     query: {
       enabled: isContractConfigured,
       refetchInterval: 12000, // auto refetch every 12 seconds
@@ -42,7 +42,7 @@ export default function Home() {
     abi: STATUSLY_ABI,
     functionName: "getStatus",
     args: address ? [address] : undefined,
-    chainId: botchainTestnet.id,
+    chainId: botchainMainnet.id,
     query: {
       enabled: isContractConfigured && !!address,
       refetchInterval: 12000,
@@ -114,12 +114,12 @@ export default function Home() {
           <p>
             Statusly &mdash; Lightweight Web3 Status Board on{" "}
             <a
-              href="https://scan.bohr.life"
+              href="https://scan.botchain.ai"
               target="_blank"
               rel="noopener noreferrer"
               className="text-purple-400 hover:text-purple-300 underline underline-offset-2"
             >
-              Botchain Testnet (Chain ID 968)
+              Botchain Mainnet (Chain ID 677)
             </a>
           </p>
           <p className="text-slate-400">

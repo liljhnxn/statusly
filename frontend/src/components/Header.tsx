@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useAccount, useConnect, useDisconnect, useSwitchChain, useChainId } from "wagmi";
 import { Wallet, LogOut, Check, Copy, AlertTriangle, Radio } from "lucide-react";
 import { shortenAddress } from "../utils/format";
-import { botchainTestnet } from "../config/chain";
+import { botchainMainnet } from "../config/chain";
 
 export function Header() {
   const { address, isConnected } = useAccount();
@@ -14,7 +14,7 @@ export function Header() {
   const chainId = useChainId();
   const [copied, setCopied] = useState(false);
 
-  const isWrongNetwork = isConnected && chainId !== botchainTestnet.id;
+  const isWrongNetwork = isConnected && chainId !== botchainMainnet.id;
 
   const handleCopy = () => {
     if (address) {
@@ -48,7 +48,7 @@ export function Header() {
                 Status<span className="text-purple-400">ly</span>
               </span>
               <span className="text-[10px] font-medium tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-950/70 text-emerald-400 border border-emerald-800/60">
-                Botchain 968
+                Botchain Mainnet (677)
               </span>
             </div>
             <p className="text-xs text-slate-400 font-medium">
@@ -61,11 +61,11 @@ export function Header() {
         <div className="flex items-center gap-3">
           {isConnected && isWrongNetwork && (
             <button
-              onClick={() => switchChain({ chainId: botchainTestnet.id })}
+              onClick={() => switchChain({ chainId: botchainMainnet.id })}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-950/80 text-amber-300 border border-amber-700/60 hover:bg-amber-900/80 transition-colors"
             >
               <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
-              <span>Switch to Botchain</span>
+              <span>Switch to Botchain Mainnet</span>
             </button>
           )}
 
@@ -114,4 +114,3 @@ export function Header() {
     </header>
   );
 }
-
