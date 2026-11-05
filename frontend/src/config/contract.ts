@@ -84,5 +84,5 @@ export const STATUSLY_ABI = [
 ] as const satisfies Abi;
 
 export const STATUSLY_CONTRACT_ADDRESS = (process.env.NEXT_PUBLIC_STATUSLY_CONTRACT_ADDRESS ||
-  "0x0000000000000000000000000000000000000000") as `0x${string}`;
+  "0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7") as `0x${string}`;
 

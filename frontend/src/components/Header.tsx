@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { useAccount, useConnect, useDisconnect, useSwitchChain, useChainId } from "wagmi";
-import { Wallet, LogOut, Check, Copy, AlertTriangle, Radio, ExternalLink } from "lucide-react";
+import { Wallet, LogOut, Check, Copy, AlertTriangle, Radio, ExternalLink, Globe } from "lucide-react";
 import { shortenAddress } from "../utils/format";
 import { botchain } from "../config/chain";
 
@@ -52,10 +53,18 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="View BOT Chain Explorer"
-                className="flex items-center gap-1 text-[10px] font-medium tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-950/70 text-emerald-400 border border-emerald-800/60 hover:bg-emerald-900/80 transition-colors"
+                className="flex items-center gap-1.5 text-[11px] font-medium tracking-wide uppercase px-2.5 py-1 rounded-full bg-charcoal-800 text-emerald-400 border border-emerald-800/60 hover:bg-charcoal-750 hover:border-emerald-700 transition-colors shadow-sm"
               >
+                <div className="relative w-3.5 h-3.5 shrink-0 rounded overflow-hidden">
+                  <Image
+                    src="/botchain-logo.png"
+                    alt="BOT Chain Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <span>BOT Chain (677)</span>
-                <ExternalLink className="w-2.5 h-2.5" />
+                <ExternalLink className="w-2.5 h-2.5 opacity-70" />
               </a>
             </div>
             <p className="text-xs text-slate-400 font-medium">
@@ -65,15 +74,45 @@ export function Header() {
         </div>
 
         {/* Links & Wallet */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          {/* BOT Chain Website Link with Logo */}
+          <a
+            href="https://botchain.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Official BOT Chain Website"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-charcoal-850 hover:bg-charcoal-800 border border-charcoal-750 hover:border-purple-500/40 transition-colors"
+          >
+            <div className="relative w-3.5 h-3.5 shrink-0 rounded overflow-hidden">
+              <Image
+                src="/botchain-logo.png"
+                alt="BOT Chain Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <span className="hidden sm:inline">BOT Chain</span>
+            <Globe className="w-3 h-3 text-purple-400" />
+          </a>
+
+          {/* BOT Chain Explorer Link with Logo */}
           <a
             href="https://scan.botchain.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-charcoal-850 hover:bg-charcoal-800 border border-charcoal-750 transition-colors"
+            title="Official BOT Chain Explorer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium text-emerald-300 hover:text-emerald-200 bg-emerald-950/40 hover:bg-emerald-950/60 border border-emerald-800/50 hover:border-emerald-700 transition-colors"
           >
+            <div className="relative w-3.5 h-3.5 shrink-0 rounded overflow-hidden">
+              <Image
+                src="/botchain-logo.png"
+                alt="BOT Chain Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
             <span>Explorer</span>
-            <ExternalLink className="w-3 h-3 text-slate-400" />
+            <ExternalLink className="w-3 h-3 opacity-70" />
           </a>
 
           {isConnected && isWrongNetwork && (

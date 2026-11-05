@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
+import Image from "next/image";
 import { useAccount, useReadContract } from "wagmi";
-import { Globe, ExternalLink, ShieldCheck } from "lucide-react";
+import { Globe, ExternalLink, ShieldCheck, Copy, Check } from "lucide-react";
 import { Header } from "../components/Header";
 import { MyStatus } from "../components/MyStatus";
 import { StatusBoard } from "../components/StatusBoard";
@@ -11,17 +12,15 @@ import { StatusRecord } from "../types/status";
 import { botchain } from "../config/chain";
 import { shortenAddress } from "../utils/format";
 
-function BotChainLogo({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" className="text-emerald-400" />
-      <path d="M7 12L10.5 15.5L17 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-400" />
-    </svg>
-  );
-}
-
 export default function Home() {
   const { address } = useAccount();
+  const [copiedContract, setCopiedContract] = useState(false);
+
+  const handleCopyContract = () => {
+    navigator.clipboard.writeText(STATUSLY_CONTRACT_ADDRESS);
+    setCopiedContract(true);
+    setTimeout(() => setCopiedContract(false), 2000);
+  };
 
   const isContractConfigured =
     STATUSLY_CONTRACT_ADDRESS &&
@@ -125,8 +124,13 @@ export default function Home() {
           {/* Ecosystem Banner */}
           <div className="rounded-2xl bg-charcoal-900/80 border border-charcoal-800 p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
             <div className="flex items-center gap-4 text-center md:text-left">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-950/60 border border-emerald-800/60 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-                <BotChainLogo className="w-7 h-7" />
+              <div className="relative w-12 h-12 rounded-2xl bg-charcoal-800 border border-emerald-500/30 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(16,185,129,0.15)] overflow-hidden p-2">
+                <Image
+                  src="/botchain-logo.png"
+                  alt="BOT Chain Logo"
+                  fill
+                  className="object-contain p-1.5"
+                />
               </div>
               <div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
@@ -143,33 +147,47 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Official BOT Chain Links */}
+            {/* Official BOT Chain Links with Logo in front */}
             <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
               <a
                 href="https://botchain.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-charcoal-800 hover:bg-charcoal-750 text-slate-200 border border-charcoal-700 hover:border-purple-500/40 transition-all duration-150 shadow-sm"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-charcoal-800 hover:bg-charcoal-750 text-slate-200 border border-charcoal-700 hover:border-purple-500/40 transition-all duration-150 shadow-sm group"
               >
-                <Globe className="w-3.5 h-3.5 text-purple-400" />
+                <div className="relative w-4 h-4 shrink-0 rounded overflow-hidden">
+                  <Image
+                    src="/botchain-logo.png"
+                    alt="BOT Chain Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <span>BOT Chain Website</span>
-                <ExternalLink className="w-3 h-3 text-slate-400" />
+                <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-slate-200 transition-colors" />
               </a>
 
               <a
                 href="https://scan.botchain.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-950/60 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-800/60 hover:border-emerald-700 transition-all duration-150 shadow-sm"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-950/60 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-800/60 hover:border-emerald-700 transition-all duration-150 shadow-sm group"
               >
-                <BotChainLogo className="w-3.5 h-3.5" />
+                <div className="relative w-4 h-4 shrink-0 rounded overflow-hidden">
+                  <Image
+                    src="/botchain-logo.png"
+                    alt="BOT Chain Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <span>BOT Chain Explorer</span>
-                <ExternalLink className="w-3 h-3 text-emerald-400" />
+                <ExternalLink className="w-3 h-3 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
           </div>
 
-          {/* Bottom Bar: Statusly Info & Contract Address */}
+          {/* Bottom Bar: Statusly Info & Mainnet Contract Address */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-charcoal-850">
             <div className="flex items-center gap-2 text-slate-400 text-xs">
               <span className="font-semibold text-slate-200">Statusly</span>
@@ -177,19 +195,34 @@ export default function Home() {
               <span>Let people know what you&apos;re up to.</span>
             </div>
 
+            {/* Mainnet Contract Address */}
             <div className="flex items-center gap-2 text-xs">
-              <span className="text-slate-400">Smart Contract:</span>
-              <a
-                href={`https://scan.botchain.ai/address/${STATUSLY_CONTRACT_ADDRESS}#code`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-purple-400 hover:text-purple-300 flex items-center gap-1 bg-charcoal-900 px-2.5 py-1 rounded-lg border border-charcoal-800 hover:border-purple-500/40 transition-colors"
-                title="View verified contract on BOT Chain Explorer"
-              >
+              <span className="text-slate-400">Mainnet Contract:</span>
+              <div className="flex items-center gap-1.5 bg-charcoal-900 border border-charcoal-800 rounded-lg px-2.5 py-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>{shortenAddress(STATUSLY_CONTRACT_ADDRESS, 6)}</span>
-                <ExternalLink className="w-3 h-3 text-slate-400" />
-              </a>
+                <a
+                  href={`https://scan.botchain.ai/address/${STATUSLY_CONTRACT_ADDRESS}#code`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-purple-400 hover:text-purple-300 flex items-center gap-1 hover:underline"
+                  title="View verified contract on BOT Chain Explorer"
+                >
+                  <span className="hidden sm:inline font-mono">{STATUSLY_CONTRACT_ADDRESS}</span>
+                  <span className="sm:hidden font-mono">{shortenAddress(STATUSLY_CONTRACT_ADDRESS, 6)}</span>
+                  <ExternalLink className="w-3 h-3 text-slate-400" />
+                </a>
+                <button
+                  onClick={handleCopyContract}
+                  title="Copy contract address"
+                  className="p-1 rounded hover:bg-charcoal-800 text-slate-400 hover:text-slate-200 transition-colors ml-1 border-l border-charcoal-800 pl-1.5"
+                >
+                  {copiedContract ? (
+                    <Check className="w-3 h-3 text-emerald-400" />
+                  ) : (
+                    <Copy className="w-3 h-3" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </div>
