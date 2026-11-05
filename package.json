@@ -2,15 +2,14 @@
   "name": "statusly",
   "version": "1.0.0",
   "private": true,
-  "description": "Statusly — Decentralized status board on Botchain",
+  "description": "Statusly — Decentralized status board on BOT Chain",
   "scripts": {
     "dev": "npm --prefix frontend run dev",
     "build": "npm --prefix frontend run build",
     "start": "npm --prefix frontend start",
     "test": "npm --prefix contracts test",
     "compile": "npm --prefix contracts run compile",
-    "deploy:testnet": "npm --prefix contracts run deploy:testnet",
-    "deploy:mainnet": "npm --prefix contracts run deploy:mainnet"
+    "deploy": "npm --prefix contracts run deploy"
   },
   "keywords": [
     "web3",

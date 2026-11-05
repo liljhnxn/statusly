@@ -1,11 +1,14 @@
 # Statusly: Whitepaper & Pitch Deck
 
 **Tagline:** Let people know what you're up to.  
-**Network:** Botchain Mainnet (Chain ID: 677) & Botchain Testnet (Chain ID: 968)  
-**Mainnet Contract Address:** `0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7`  
-**Mainnet Explorer:** [scan.botchain.ai](https://scan.botchain.ai/address/0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7#code)  
+**Network:** BOT Chain (Chain ID: 677)  
+**Native Token:** BOT  
+**Contract Address:** `0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7`  
+**Verified Source Code:** [BOT Chain Explorer](https://scan.botchain.ai/address/0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7#code)  
+**BOT Chain Website:** [https://botchain.ai](https://botchain.ai)  
+**BOT Chain Explorer:** [https://scan.botchain.ai](https://scan.botchain.ai)  
 **Repository:** [github.com/liljhnxn/statusly](https://github.com/liljhnxn/statusly)  
-**Version:** 2.0 — Mainnet Release  
+**Version:** 2.0 — Production Release  
 
 ---
 
@@ -13,7 +16,7 @@
 
 ### 1. Executive Summary
 
-Statusly is a minimalist, decentralized status board built on the Botchain network. It allows users to connect their Web3 wallets and publish their current status and activity directly on-chain for the community to see in real time. 
+Statusly is a minimalist, decentralized status board built on the BOT Chain network. It allows users to connect their Web3 wallets and publish their current status and activity directly on-chain for the community to see in real time. 
 
 By removing centralized databases, backend servers, and account registration requirements, Statusly introduces a lightweight, serverless standard for Web3 micro-presence. Every status update, message, and clear operation is an immutable, sovereign transaction executed directly by the user's wallet.
 
@@ -46,10 +49,10 @@ Statusly strips away all non-essential layers to deliver a pure, gas-efficient o
                 │                        │
                 ▼                        │
 ┌────────────────────────────────────────┴───────────────┐
-│              Botchain Testnet (Chain ID 968)           │
-│                   RPC: https://rpc.bohr.life           │
+│                 BOT Chain (Chain ID 677)               │
+│               RPC: https://rpc.botchain.ai             │
 │                                                        │
-│           Statusly.sol (0xa78487...5457)               │
+│           Statusly.sol (0x89f2A8...41e7)               │
 │   - mapping(address => StatusRecord)                   │
 │   - address[] activeUsers (O(1) Swap-and-Pop)         │
 │   - updateStatus(uint8 statusType, string message)     │
@@ -70,9 +73,10 @@ Statusly strips away all non-essential layers to deliver a pure, gas-efficient o
 ### Slide 1: Title & Tagline
 - **Title:** Statusly
 - **Tagline:** Let people know what you're up to.
-- **Sub-tagline:** The decentralized micro-presence board on Botchain.
-- **Live Contract:** `0xa7848700A7ed85Fa13c410d44e56E46e82545457`
-- **Network:** Botchain Testnet (Chain ID: 968)
+- **Sub-tagline:** The decentralized micro-presence board on BOT Chain.
+- **Live Contract:** `0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7`
+- **Network:** BOT Chain (Chain ID: 677)
+- **Ecosystem:** [https://botchain.ai](https://botchain.ai) | [https://scan.botchain.ai](https://scan.botchain.ai)
 
 ### Slide 2: The Problem
 - Web3 identities (wallets) lack real-time context.
@@ -82,7 +86,7 @@ Statusly strips away all non-essential layers to deliver a pure, gas-efficient o
 ### Slide 3: The Solution
 - A single-click, decentralized status board.
 - Connect MetaMask $\rightarrow$ select status $\rightarrow$ publish on-chain in seconds.
-- Anyone on Botchain can see what fellow builders, gamers, and community members are doing.
+- Anyone on BOT Chain can see what fellow builders, gamers, and community members are doing.
 
 ### Slide 4: Key Features
 - **5 Predefined Statuses:** Available, Busy, Studying, Gaming, Away.
@@ -100,25 +104,26 @@ Statusly strips away all non-essential layers to deliver a pure, gas-efficient o
 - **Smart Contract:** Solidity `0.8.20`, Hardhat, PARIS EVM target.
 - **Web3 Layer:** wagmi v2, viem, injected MetaMask connector.
 - **Frontend:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Lucide React.
-- **Network Integration:** Botchain Testnet (Chain ID 968, `https://rpc.bohr.life`).
+- **Network Integration:** BOT Chain (Chain ID 677, `https://rpc.botchain.ai`).
 
 ### Slide 7: Security & Reliability
 - 10 Comprehensive unit tests passing on Hardhat covering updates, boundaries, deletions, and event logs.
-- Source code verified and readable on Botchain Blockscout Explorer.
+- Source code verified and readable on BOT Chain Explorer.
 - Zero centralized dependencies or server downtime vulnerabilities.
 
 ### Slide 8: Ecosystem & Community Impact
-- Brings authentic, everyday on-chain transactions to Botchain.
-- Demonstrates fast finality, low gas fees, and high usability on Botchain Testnet.
+- Brings authentic, everyday on-chain transactions to BOT Chain.
+- Demonstrates fast finality, low gas fees, and high usability on BOT Chain.
 - Serves as a public status layer for DAOs, developer teams, and on-chain communities.
 
 ### Slide 9: Roadmap
-- **Phase 1 (Completed):** Smart contract deployment, verification, Next.js frontend, and Botchain integration.
-- **Phase 2:** Support for custom NFT avatars and Botchain Name Service (.bohr) resolution.
+- **Phase 1 (Completed):** Smart contract deployment on BOT Chain, explorer verification, Next.js frontend, and ecosystem integration.
+- **Phase 2:** Support for custom NFT avatars and BOT Chain Name Service resolution.
 - **Phase 3:** Embeddable status badges (widgets) for personal GitHub readmes and Web3 portfolios.
-- **Phase 4:** Botchain Mainnet deployment and ecosystem integration.
+- **Phase 4:** DAO & Community Spaces expansion.
 
 ### Slide 10: Conclusion & Links
+- **BOT Chain Website:** [https://botchain.ai](https://botchain.ai)
+- **BOT Chain Explorer:** [https://scan.botchain.ai](https://scan.botchain.ai)
+- **Verified Contract:** [https://scan.botchain.ai/address/0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7#code](https://scan.botchain.ai/address/0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7#code)
 - **GitHub:** [https://github.com/liljhnxn/statusly](https://github.com/liljhnxn/statusly)
-- **Explorer:** [https://scan.bohr.life/address/0xa7848700A7ed85Fa13c410d44e56E46e82545457#code](https://scan.bohr.life/address/0xa7848700A7ed85Fa13c410d44e56E46e82545457#code)
-- **Contact / Team:** Statusly Core

@@ -4,7 +4,7 @@ import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Statusly — Let people know what you're up to",
-  description: "A decentralized status board on Botchain Testnet.",
+  description: "A decentralized status board on BOT Chain.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },

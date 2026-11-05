@@ -115,7 +115,7 @@ export function MyStatus({ myStatus, isLoadingStatus, onRefresh }: MyStatusProps
           </div>
           <h2 className="text-lg font-semibold text-slate-100">Connect to Share Your Status</h2>
           <p className="text-sm text-slate-400">
-            Connect your MetaMask wallet to let everyone know what you are doing in real time on the Botchain network.
+            Connect your MetaMask wallet to let everyone know what you are doing in real time on BOT Chain.
           </p>
         </div>
       </div>
@@ -272,7 +272,7 @@ export function MyStatus({ myStatus, isLoadingStatus, onRefresh }: MyStatusProps
         {isConfirmed && (
           <div className="flex items-center gap-2 p-3 rounded-xl bg-emerald-950/50 border border-emerald-800/50 text-emerald-300 text-xs animate-fade-in">
             <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
-            <span>Status updated successfully on Botchain!</span>
+            <span>Status updated successfully on BOT Chain!</span>
           </div>
         )}
 
@@ -287,7 +287,7 @@ export function MyStatus({ myStatus, isLoadingStatus, onRefresh }: MyStatusProps
             {isBusy ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin text-purple-200" />
-                <span>{isSignPending ? "Confirm in MetaMask..." : "Publishing to Botchain..."}</span>
+                <span>{isSignPending ? "Confirm in MetaMask..." : "Publishing to BOT Chain..."}</span>
               </>
             ) : (
               <>

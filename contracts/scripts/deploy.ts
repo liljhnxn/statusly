@@ -1,18 +1,10 @@
-import { ethers, network } from "hardhat";
+import { ethers } from "hardhat";
 import * as fs from "fs";
 import * as path from "path";
 
 async function main() {
-  const currentNetwork = await ethers.provider.getNetwork();
-  const chainId = currentNetwork.chainId.toString();
-  const isMainnet = chainId === "677";
-
-  const networkName = isMainnet ? "Botchain Mainnet" : "Botchain Testnet";
-  const explorerBase = isMainnet ? "https://scan.botchain.ai" : "https://scan.bohr.life";
-  const symbol = isMainnet ? "BOT" : "BOHR";
-
   console.log("----------------------------------------------------");
-  console.log(`Deploying Statusly contract to ${networkName} (Chain ID: ${chainId})...`);
+  console.log("Deploying Statusly contract to BOT Chain (Chain ID: 677)...");
 
   const [deployer] = await ethers.getSigners();
   if (!deployer) {
@@ -23,7 +15,7 @@ async function main() {
 
   console.log(`Deployer address: ${deployer.address}`);
   const balance = await ethers.provider.getBalance(deployer.address);
-  console.log(`Account balance: ${ethers.formatEther(balance)} ${symbol}`);
+  console.log(`Account balance: ${ethers.formatEther(balance)} BOT`);
 
   const feeData = await ethers.provider.getFeeData();
   const gasPrice = feeData.gasPrice || 20000000000n; // fallback to 20 Gwei
@@ -36,7 +28,7 @@ async function main() {
   const estimatedGas = await ethers.provider.estimateGas(deployTx);
   const estimatedCost = estimatedGas * gasPrice;
   console.log(`Estimated Deployment Gas: ${estimatedGas.toString()} units`);
-  console.log(`Estimated Cost: ~${ethers.formatEther(estimatedCost)} ${symbol}`);
+  console.log(`Estimated Cost: ~${ethers.formatEther(estimatedCost)} BOT`);
 
   console.log("Broadcasting deployment transaction...");
   const statusly = await Statusly.deploy({
@@ -53,8 +45,8 @@ async function main() {
   console.log("----------------------------------------------------");
   console.log(`Statusly contract deployed successfully to: ${contractAddress}`);
   console.log(`Actual Gas Used: ${actualGasUsed.toString()}`);
-  console.log(`Actual Fee Paid: ${ethers.formatEther(actualFee)} ${symbol}`);
-  console.log(`View on Explorer: ${explorerBase}/address/${contractAddress}`);
+  console.log(`Actual Fee Paid: ${ethers.formatEther(actualFee)} BOT`);
+  console.log(`View on Explorer: https://scan.botchain.ai/address/${contractAddress}`);
   console.log("----------------------------------------------------");
 
   // 1. Output ABI & address JSON for frontend
@@ -69,9 +61,9 @@ async function main() {
 
     const deployedInfo = {
       address: contractAddress,
-      chainId: chainId,
-      network: networkName,
-      explorer: explorerBase,
+      chainId: "677",
+      network: "BOT Chain",
+      explorer: "https://scan.botchain.ai",
       abi: artifact.abi,
     };
 
@@ -84,7 +76,7 @@ async function main() {
 
   // 2. Automatically sync frontend/.env.local with deployed address
   const envLocalPath = path.join(__dirname, "../../frontend/.env.local");
-  const envContent = `# Statusly Smart Contract Address on ${networkName} (Chain ID ${chainId})\nNEXT_PUBLIC_STATUSLY_CONTRACT_ADDRESS=${contractAddress}\n`;
+  const envContent = `# Statusly Smart Contract Address on BOT Chain (Chain ID 677)\nNEXT_PUBLIC_STATUSLY_CONTRACT_ADDRESS=${contractAddress}\n`;
   fs.writeFileSync(envLocalPath, envContent);
   console.log(`✓ Updated frontend/.env.local with NEXT_PUBLIC_STATUSLY_CONTRACT_ADDRESS=${contractAddress}`);
 }

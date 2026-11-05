@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { useAccount, useConnect, useDisconnect, useSwitchChain, useChainId } from "wagmi";
-import { Wallet, LogOut, Check, Copy, AlertTriangle, Radio } from "lucide-react";
+import { Wallet, LogOut, Check, Copy, AlertTriangle, Radio, ExternalLink } from "lucide-react";
 import { shortenAddress } from "../utils/format";
-import { botchainMainnet } from "../config/chain";
+import { botchain } from "../config/chain";
 
 export function Header() {
   const { address, isConnected } = useAccount();
@@ -14,7 +14,7 @@ export function Header() {
   const chainId = useChainId();
   const [copied, setCopied] = useState(false);
 
-  const isWrongNetwork = isConnected && chainId !== botchainMainnet.id;
+  const isWrongNetwork = isConnected && chainId !== botchain.id;
 
   const handleCopy = () => {
     if (address) {
@@ -47,9 +47,16 @@ export function Header() {
               <span className="font-bold text-xl tracking-tight text-slate-100">
                 Status<span className="text-purple-400">ly</span>
               </span>
-              <span className="text-[10px] font-medium tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-950/70 text-emerald-400 border border-emerald-800/60">
-                Botchain Mainnet (677)
-              </span>
+              <a
+                href="https://scan.botchain.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View BOT Chain Explorer"
+                className="flex items-center gap-1 text-[10px] font-medium tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-950/70 text-emerald-400 border border-emerald-800/60 hover:bg-emerald-900/80 transition-colors"
+              >
+                <span>BOT Chain (677)</span>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </a>
             </div>
             <p className="text-xs text-slate-400 font-medium">
               Let people know what you&apos;re up to.
@@ -57,15 +64,25 @@ export function Header() {
           </div>
         </div>
 
-        {/* Wallet & Network Info */}
+        {/* Links & Wallet */}
         <div className="flex items-center gap-3">
+          <a
+            href="https://scan.botchain.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-charcoal-850 hover:bg-charcoal-800 border border-charcoal-750 transition-colors"
+          >
+            <span>Explorer</span>
+            <ExternalLink className="w-3 h-3 text-slate-400" />
+          </a>
+
           {isConnected && isWrongNetwork && (
             <button
-              onClick={() => switchChain({ chainId: botchainMainnet.id })}
+              onClick={() => switchChain({ chainId: botchain.id })}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-950/80 text-amber-300 border border-amber-700/60 hover:bg-amber-900/80 transition-colors"
             >
               <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
-              <span>Switch to Botchain Mainnet</span>
+              <span>Switch to BOT Chain</span>
             </button>
           )}
 

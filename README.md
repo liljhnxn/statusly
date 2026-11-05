@@ -10,16 +10,16 @@ Users can choose from predefined statuses, attach an optional short message (up 
 
 ## ⚡ Features
 
-- **Decentralized & Serverless:** 100% on-chain state stored on Botchain. No database, backend, or centralized API.
+- **Decentralized & Serverless:** 100% on-chain state stored on BOT Chain. No database, backend, or centralized API.
 - **Predefined Statuses:**
   - 🟢 **Available**
   - 🔴 **Busy**
   - 🟣 **Studying**
   - 🎮 **Gaming**
   - ☕ **Away**
-- **Wallet Connection:** Connect MetaMask with automatic Botchain Mainnet network switching.
+- **Wallet Connection:** Connect MetaMask with automatic BOT Chain network switching.
 - **My Status Control:** Update, publish, or clear your active status with immediate UI feedback and transaction states.
-- **Community Status Board:** Browse active statuses from all users, with dynamic time indicators ("just now", "5m ago"), shortened wallet addresses, and direct links to the block explorer.
+- **Community Status Board:** Browse active statuses from all users, with dynamic time indicators ("just now", "5m ago"), shortened wallet addresses, and direct links to the BOT Chain block explorer.
 - **Category Filtering & Search:** Filter by status type (with live count badges) and search by wallet address or message keyword.
 - **Dark Charcoal & Muted Accents Design:** Modern aesthetic featuring charcoal tones, subtle purple and emerald accents, rounded cards, and smooth hover effects.
 
@@ -27,19 +27,14 @@ Users can choose from predefined statuses, attach an optional short message (up 
 
 ## 🌐 Blockchain Configuration
 
-### 🚀 Botchain Mainnet (Live)
+- **Network Name:** BOT Chain
 - **Chain ID:** `677`
 - **RPC URL:** `https://rpc.botchain.ai`
-- **Block Explorer:** [https://scan.botchain.ai](https://scan.botchain.ai)
-- **Currency Symbol:** `BOT`
-- **Deployed & Verified Contract:** [`0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7`](https://scan.botchain.ai/address/0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7#code)
-
-### 🧪 Botchain Testnet
-- **Chain ID:** `968`
-- **RPC URL:** `https://rpc.bohr.life`
-- **Block Explorer:** [https://scan.bohr.life](https://scan.bohr.life)
-- **Currency Symbol:** `BOHR`
-- **Deployed & Verified Contract:** [`0xa7848700A7ed85Fa13c410d44e56E46e82545457`](https://scan.bohr.life/address/0xa7848700A7ed85Fa13c410d44e56E46e82545457#code)
+- **Native Token:** `BOT`
+- **Total Supply:** 150 Million
+- **BOT Chain Website:** [https://botchain.ai](https://botchain.ai)
+- **BOT Chain Explorer:** [https://scan.botchain.ai](https://scan.botchain.ai)
+- **Deployed & Verified Contract Address:** [`0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7`](https://scan.botchain.ai/address/0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7#code)
 
 ---
 
@@ -61,9 +56,9 @@ Users can choose from predefined statuses, attach an optional short message (up 
 npm test
 ```
 
-#### Deploy to Botchain Mainnet
+#### Deploy to BOT Chain
 ```bash
-npm run deploy:mainnet
+npm run deploy
 ```
 
 ---
@@ -79,3 +74,11 @@ npm run deploy:mainnet
    npm run dev
    ```
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 🔗 Official Ecosystem Links
+
+- **BOT Chain Website:** [https://botchain.ai](https://botchain.ai)
+- **BOT Chain Explorer:** [https://scan.botchain.ai](https://scan.botchain.ai)
+- **Verified Contract:** [https://scan.botchain.ai/address/0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7#code](https://scan.botchain.ai/address/0x89f2A87d1686F90Cec2E46766a53630b94Fd41e7#code)

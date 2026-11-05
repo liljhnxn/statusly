@@ -79,7 +79,7 @@ export function StatusBoard({
             </span>
           </div>
           <p className="text-xs text-slate-400 mt-0.5">
-            Real-time statuses published on Botchain Testnet.
+            Real-time statuses published on BOT Chain.
           </p>
         </div>
 
@@ -140,7 +140,7 @@ export function StatusBoard({
           </h3>
           <p className="text-xs text-slate-400 max-w-sm mx-auto mt-1">
             {statuses.length === 0
-              ? "Be the first person to publish your status on Botchain Testnet!"
+              ? "Be the first person to publish your status on BOT Chain!"
               : "Try switching to another filter tab or clearing your search term."}
           </p>
           {selectedFilter !== "ALL" && (
